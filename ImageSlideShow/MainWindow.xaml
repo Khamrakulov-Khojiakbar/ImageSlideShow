@@ -1,0 +1,26 @@
+﻿<Window x:Class="ImageSlideShow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageSlideShow"
+        mc:Ignorable="d"
+        Title="Image Slide Show" Height="450" Width="800" WindowState="Maximized" Loaded="Window_Loaded">
+    
+    
+    <Grid Background="Black">
+        <Image Name="ImageViewer" Stretch="Uniform" />
+        
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Window.Loaded">
+                <BeginStoryboard>
+                    <Storyboard x:Name="SlideshowStoryboard" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="ImageViewer"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1.0" To="0.0" Duration="0:0:5" AutoReverse="True" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+    </Grid>
+</Window>
